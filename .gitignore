@@ -3,5 +3,5 @@ vendor/*/
 *.iml
 ggr
 cover.*
-api
-worker
+/api
+/worker
