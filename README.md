@@ -1,4 +1,7 @@
 # Zeppelin
+
+[![Build Status](https://travis-ci.org/distillate/zeppelin.svg?branch=master)](https://travis-ci.org/distillate/zeppelin)
+
 This repository contains Zeppelin runtime.
 
 ## Installing dependencies
