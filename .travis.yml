@@ -3,7 +3,7 @@ language: go
 go:
   - 1.7
 script:
-  - go test -coverprofile=coverage.txt -covermode=atomic -coverpkg .
+  - go test -covermode=atomic -coverpkg $(go list ./... | grep -v vendor | xargs | sed 's/ /,/g') $(go list ./... | grep -v vendor)
 
 before_install:
   - go get -u github.com/kardianos/govendor
