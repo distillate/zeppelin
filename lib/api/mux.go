@@ -1,8 +1,8 @@
 package api
 
 import (
-	"net/http"
 	"github.com/julienschmidt/httprouter"
+	"net/http"
 )
 
 func Mux() http.Handler {
@@ -26,7 +26,6 @@ func Mux() http.Handler {
 
 	// Report operations
 	router.POST("/launch/:id/report", RequestReport)
-
 
 	return router
 }
