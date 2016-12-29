@@ -4,7 +4,7 @@ type Pack struct {
 	Id   string `json:"id"`
 	Name string `json:"name"`
 	//Schedule     string        `json:"schedule"`
-	Suites     []Suite    `json:"suites"`
+	TestCases  []TestCase `json:"testcases"`
 	Properties []Property `json:"properties"`
 	//Integrations []Integration `json:"schedule"`
 }
@@ -12,13 +12,15 @@ type Pack struct {
 // Includes flags, tests in parallel
 type Property struct {
 	Key   string `json:"key"`
+	Name  string `json:"name"`
 	Value string `json:"value"`
 }
 
-type Suite struct {
+type TestCase struct {
 	Id       string    `json:"id"`
 	Name     string    `json:"name"`
 	Artifact *Artifact `json:"artifact"`
+	Tags     []string  `json:"tags"` // Suite name is an automatically added tag
 }
 
 // Artifact with tests like Maven or NPM artifact
@@ -37,10 +39,10 @@ type Integration struct {
 }
 
 type Launch struct {
-	Id     string        `json:"id"`
-	Pack   *Pack         `json:"pack,omitempty"`
-	State  int           `json:"state"`
-	Suites []SuiteLaunch `json:"suites"`
+	Id        string           `json:"id"`
+	Pack      *Pack            `json:"pack,omitempty"`
+	State     int              `json:"state"`
+	TestCases []TestCaseLaunch `json:"testcases"`
 }
 
 // Launch states
@@ -51,11 +53,11 @@ const (
 	LAUNCH_REVOKED
 )
 
-type SuiteLaunch struct {
-	Id    string `json:"id"`
-	Suite *Suite `json:"suite,omitempty"`
-	State int    `json:"state"`
-	Log   string `json:"log"` // log file relative url (changes from temporary runtime url to permanent storage url)
+type TestCaseLaunch struct {
+	Id       string    `json:"id"`
+	TestCase *TestCase `json:"testcase,omitempty"`
+	State    int       `json:"state"`
+	Log      string    `json:"log"` // log file relative url (changes from temporary runtime url to permanent storage url)
 }
 
 // Suite states
