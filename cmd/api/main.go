@@ -2,9 +2,9 @@ package main
 
 import (
 	"flag"
+	"github.com/distillate/zeppelin/lib/api"
 	"github.com/facebookgo/grace/gracehttp"
 	"net/http"
-	"github.com/distillate/zeppelin/lib/api"
 )
 
 var (
