@@ -1,0 +1,22 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: dummy
+spec:
+  template:
+    metadata:
+      name: dummy
+    spec:
+      containers:
+      - name: dummy
+        image: dummy
+        imagePullPolicy: IfNotPresent
+        workingDir: /home/maven
+        volumeMounts:
+        - name: mc-config
+          mountPath: /home/maven/.mc
+      volumes:
+      - name: mc-config
+        configMap:
+          name: mc-config
+      restartPolicy: Never

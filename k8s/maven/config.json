@@ -1,0 +1,11 @@
+{
+	"version": "8",
+	"hosts": {
+		"s3": {
+			"url": "http://storage-minio-svc:9000",
+			"accessKey": "<MINIO_ACCESS_KEY>",
+			"secretKey": "<MINIO_SECRET_KEY>",
+			"api": "S3v4"
+		}
+	}
+}
